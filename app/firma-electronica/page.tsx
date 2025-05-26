@@ -171,8 +171,8 @@ export default function FirmaElectronicaPage() {
             >
               Crear nuevo contrato 
             </Button>
-            <Button className="hover:bg-blue-100">Firma Electrónica</Button>
-            <Button className="hover:bg-blue-100">Crear PDF</Button>
+            <Button className="">Firma Electrónica</Button>
+            <Button className="">Crear PDF</Button>
           </div>
 
           {/* Información detallada - Moved to Modal */}
