@@ -1,4 +1,4 @@
-import { Building2, ClipboardList } from "lucide-react"
+import { Building2, ClipboardList, Settings } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
 
@@ -15,7 +15,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Mantenedores Card */}
         <Card className="hover:shadow-md transition-shadow">
           <CardHeader>
@@ -64,14 +64,14 @@ export default function HomePage() {
             <Link href="/firma-electronica" className="block text-sm text-green-600 hover:text-green-700">
               • Firma Electrónica
             </Link>
-            {/* <Link href="/horas-extras" className="block text-sm text-green-600 hover:text-green-700">
+            <Link href="/horas-extras" className="block text-sm text-green-600 hover:text-green-700">
               • Horas Extras Bonos
-            </Link> */}
+            </Link>
           </CardContent>
         </Card>
 
         {/* Procesos Card */}
-        {/* <Card className="hover:shadow-md transition-shadow">
+        <Card className="hover:shadow-md transition-shadow">
           <CardHeader>
             <div className="flex items-center gap-3 mb-2">
               <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
@@ -81,10 +81,74 @@ export default function HomePage() {
             </div>
             <CardDescription>Ejecuta procesos del sistema</CardDescription>
           </CardHeader>
-          <CardContent>
-            <p className="text-sm text-slate-500">Próximamente disponible</p>
+          <CardContent className="space-y-2">
+            <Link href="/calculos-mensuales" className="block text-sm text-purple-600 hover:text-purple-700">
+              • Calculos Mensuales
+            </Link>
+            <Link href="/periodos" className="block text-sm text-purple-600 hover:text-purple-700">
+              • Mantenedor Periodos
+            </Link>
+            <Link href="/previred" className="block text-sm text-purple-600 hover:text-purple-700">
+              • Previred
+            </Link>
+            <Link href="/lre" className="block text-sm text-purple-600 hover:text-purple-700">
+              • LRE
+            </Link>
+            <Link href="/leer-libro" className="block text-sm text-purple-600 hover:text-purple-700">
+              • Leer Libro de Remuneraciones
+            </Link>
+            <Link href="/informes-liquidos" className="block text-sm text-purple-600 hover:text-purple-700">
+              • Informes Líquidos
+            </Link>
           </CardContent>
-        </Card> */}
+        </Card>
+
+        {/* Parametros */}
+        <Card className="hover:shadow-md transition-shadow">
+          <CardHeader>
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                <Settings className="w-6 h-6 text-blue-600" />
+              </div>
+              <CardTitle>Parámetros</CardTitle>
+            </div>
+            <CardDescription>Administra los parámetros del sistema</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            <Link href="/parametros/sis" className="block text-sm text-blue-600 hover:text-blue-700">
+              • SIS
+            </Link>
+            <Link href="/parametros/uf" className="block text-sm text-blue-600 hover:text-blue-700">
+              • UF
+            </Link>
+            <Link href="/parametros/utm" className="block text-sm text-blue-600 hover:text-blue-700">
+              • UTM
+            </Link>
+            <Link href="/parametros/mutual" className="block text-sm text-blue-600 hover:text-blue-700">
+              • Mutual
+            </Link>
+            <Link href="/parametros/topes-imponibles" className="block text-sm text-blue-600 hover:text-blue-700">
+              • Topes Imponibles
+            </Link>
+            <Link href="/parametros/valores-anuales" className="block text-sm text-blue-600 hover:text-blue-700">
+              • Valores Anuales
+            </Link>
+            <Link href="/parametros/afp" className="block text-sm text-blue-600 hover:text-blue-700">
+              • AFP
+            </Link>
+            <Link href="/parametros/isapres" className="block text-sm text-blue-600 hover:text-blue-700">
+              • ISAPRES
+            </Link>
+            <Link href="/parametros/estado-civil" className="block text-sm text-blue-600 hover:text-blue-700">
+              • Estado Civil
+            </Link>
+            <Link href="/parametros/ciudades" className="block text-sm text-blue-600 hover:text-blue-700">
+              • Ciudades
+            </Link>
+          </CardContent>
+        </Card>
+
+        
       </div>
     </div>
   )

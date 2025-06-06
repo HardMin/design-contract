@@ -6,9 +6,12 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { contratosData } from "@/const"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import TableHorasExtras from "@/components/horas-extras/TableHorasExtras"
 
 export default function HorasExtrasPage() {
-  const [proyecto, setProyecto] = useState("1465 CAJA LOS ANDES FANTASMA")
+  const [proyecto, setProyecto] = useState<boolean>(false)
 
   return (
     <div className="space-y-6">
@@ -25,13 +28,22 @@ export default function HorasExtrasPage() {
         <CardContent className="pt-6">
           <div className="mb-6">
             <Label htmlFor="proyecto">Proyecto</Label>
-            <Input id="proyecto" value={proyecto} onChange={(e) => setProyecto(e.target.value)} className="mt-2" />
+            <Select onValueChange={(value) => {
+              setProyecto(value !== "Seleccionar")
+            }}>
+              <SelectTrigger id="proyecto">
+                <SelectValue placeholder="Seleccionar" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="1465 CAJA LOS ANDES FANTASMA" >1465 CAJA LOS ANDES FANTASMA</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
 
           <div className="flex gap-4">
             <Button className="bg-blue-600 hover:bg-blue-700">Grabar</Button>
-            <Button className="bg-green-600 hover:bg-green-700">Autorizar</Button>
-            <Button className="bg-purple-600 hover:bg-purple-700">Excel Resumen</Button>
+            <Button variant={"ghost"} className="border hover:bg-green-700 hover:text-white">Autorizar</Button>
+            <Button variant={"ghost"} className="border hover:bg-purple-700 hover:text-white">Excel Resumen</Button>
           </div>
         </CardContent>
       </Card>
@@ -39,13 +51,19 @@ export default function HorasExtrasPage() {
       {/* Área de contenido principal */}
       <Card>
         <CardContent className="p-8">
-          <div className="text-center py-16">
-            <Clock className="w-16 h-16 text-slate-300 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-slate-900 mb-2">Gestión de Horas Extras</h3>
-            <p className="text-slate-600">
-              Selecciona un proyecto para gestionar las horas extras y bonificaciones del personal.
-            </p>
-          </div>
+          {
+            !proyecto ? (
+              <div className="text-center py-16">
+                <Clock className="w-16 h-16 text-slate-300 mx-auto mb-4" />
+                <h3 className="text-lg font-medium text-slate-900 mb-2">Gestión de Horas Extras</h3>
+                <p className="text-slate-600">
+                  Selecciona un proyecto para gestionar las horas extras y bonificaciones del personal.
+                </p>
+              </div>
+            ) : (
+              <TableHorasExtras/>
+            )
+          }
         </CardContent>
       </Card>
 
